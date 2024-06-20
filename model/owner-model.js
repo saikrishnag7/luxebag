@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/luxebag");
 
-const userSchema = mongoose.Schema({
+const ownerSchema = mongoose.Schema({
     fullname : {
         type : String,
         minLength : 3,
@@ -10,12 +9,7 @@ const userSchema = mongoose.Schema({
     },
     email : String,
     password : String,
-    cart :{
-        type : Array,
-        default : []
-    },
-    isadmin : Boolean,
-    orders :{
+    products :{
         type : Array,
         default : []
     },
@@ -23,4 +17,4 @@ const userSchema = mongoose.Schema({
     picture : String
 });
 
-module.exports = mongoose.model("user" , userSchema);
+module.exports = mongoose.model("owner" , userSchema);
